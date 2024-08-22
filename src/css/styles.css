@@ -1,0 +1,151 @@
+@import url('izitoast/dist/css/iziToast.css');
+@import url("simplelightbox/dist/simple-lightbox.min.css");
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.js-search-form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.js-search-form input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.js-search-form button {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.js-search-form button:hover {
+  background-color: #e0e0e0;
+}
+
+.js-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.gallery-card img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: 140px;
+}
+
+.info {
+  padding: 10px;
+  display: flex;
+  text-align: center;
+}
+
+.info p {
+  margin: 0;
+  font-size: 10px;
+}
+
+.info strong {
+  font-weight: bold;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation-fill-mode: both;
+  animation: bblFadInOut 1.8s infinite ease-in-out;
+}
+
+.loader {
+  color: #000000;
+  font-size: 7px;
+  position: relative;
+  text-indent: -9999em;
+  transform: translateZ(0);
+  animation-delay: -0.16s;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+
+.loader:before {
+  left: -3.5em;
+  animation-delay: -0.32s;
+}
+
+.loader:after {
+  left: 3.5em;
+}
+
+@keyframes bblFadInOut {
+
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em
+  }
+
+  40% {
+    box-shadow: 0 2.5em 0 0
+  }
+}
+
+.loader-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.loader.is-hidden {
+  display: none;
+}
+
+.load-more-btn.is-hidden {
+  display: none;
+}
+
+.load-more-btn {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: auto;
+  display: block;
+  margin-bottom: 100px;
+}
+
+.load-more-btn:hover {
+  background-color: #e0e0e0;
+}
