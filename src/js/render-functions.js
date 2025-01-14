@@ -1,6 +1,6 @@
 import iziToast from 'izitoast';
 
-export const createGalleryCardTemplate = (cardInfo) => {
+export const createGalleryCardTemplate = cardInfo => {
   return `
     <a href="${cardInfo.largeImageURL}" class="gallery-item">
       <div class="gallery-card">
@@ -17,18 +17,18 @@ export const createGalleryCardTemplate = (cardInfo) => {
 };
 
 export const displayGallery = (galleryMarkup, galleryEl, lightbox) => {
-  galleryEl.insertAdjacentHTML('beforeend', galleryMarkup);
+  galleryEl.innerHTML = galleryMarkup;
   lightbox.refresh();
 };
 
-export const displayError = (message) => {
+export const displayError = message => {
   iziToast.error({
     title: 'Error',
     message,
   });
 };
 
-export const displayWarning = (message) => {
+export const displayWarning = message => {
   iziToast.warning({
     title: 'No results',
     message,
