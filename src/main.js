@@ -60,6 +60,7 @@ const onLoadMoreBtnClick = async () => {
   try {
     page += 1;
     loaderEl.classList.remove('is-hidden');
+    loadMoreBtnEl.classList.add('is-hidden');
 
     const response = await fetchImages(currentQuery, page);
 
@@ -77,6 +78,8 @@ const onLoadMoreBtnClick = async () => {
       displayWarning(
         "We're sorry, but you've reached the end of search results."
       );
+    } else {
+      loadMoreBtnEl.classList.remove('is-hidden');
     }
 
     const { height: cardHeight } =
@@ -85,10 +88,7 @@ const onLoadMoreBtnClick = async () => {
       top: cardHeight * 2,
       behavior: 'smooth',
     });
-
-    loaderEl.classList.add('is-hidden');
   } catch (err) {
-    loaderEl.classList.add('is-hidden');
     displayError(`Something went wrong: ${err.message}`);
   } finally {
     loaderEl.classList.add('is-hidden');
