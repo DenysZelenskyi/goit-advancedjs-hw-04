@@ -23,6 +23,7 @@ const onSearchFormSubmit = async e => {
 
     currentQuery = e.currentTarget.elements.user_query.value.trim();
     page = 1;
+
     loaderEl.classList.add('is-hidden');
     loadMoreBtnEl.classList.add('is-hidden');
 
@@ -54,6 +55,8 @@ const onSearchFormSubmit = async e => {
     }
   } catch (err) {
     displayError(`Something went wrong: ${err.message}`);
+  } finally {
+    loaderEl.classList.add('is-hidden');
   }
 };
 
