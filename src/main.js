@@ -51,6 +51,20 @@ const onSearchFormSubmit = async e => {
         .map(createGalleryCardTemplate)
         .join('');
       displayGallery(galleryMarkup, galleryEl, lightbox);
+
+      const images = Array.from(
+        galleryEl.querySelectorAll('.gallery-card img')
+      );
+
+      await Promise.all(
+        images.map(
+          img =>
+            new Promise(resolve => {
+              img.onload = img.onerror = resolve;
+            })
+        )
+      );
+
       loadMoreBtnEl.classList.remove('is-hidden');
     }
   } catch (err) {
@@ -72,6 +86,19 @@ const onLoadMoreBtnClick = async () => {
       .map(createGalleryCardTemplate)
       .join('');
     galleryEl.insertAdjacentHTML('beforeend', galleryMarkup);
+
+    const images = Array.from(
+      galleryEl.querySelectorAll('.gallery-card img')
+    ).slice(-response.data.hits.length);
+
+    await Promise.all(
+      images.map(
+        img =>
+          new Promise(resolve => {
+            img.onload = img.onerror = resolve;
+          })
+      )
+    );
 
     lightbox.refresh();
 
