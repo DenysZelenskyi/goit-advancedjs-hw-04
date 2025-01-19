@@ -17,13 +17,5 @@ export const fetchImages = function (query, page) {
     },
   };
 
-  // Обертка с задержкой
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      axios
-        .get(URL, axiosConfigs)
-        .then(response => resolve(response))
-        .catch(error => reject(error));
-    }, 3000); // Задержка 3 секунды
-  });
+  return axios.get(URL, axiosConfigs);
 };
