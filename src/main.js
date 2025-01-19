@@ -24,6 +24,7 @@ const onSearchFormSubmit = async e => {
     currentQuery = e.currentTarget.elements.user_query.value.trim();
     page = 1;
     loaderEl.classList.add('is-hidden');
+    loadMoreBtnEl.classList.add('is-hidden');
 
     if (!currentQuery) {
       displayError('Please enter a search query.');
